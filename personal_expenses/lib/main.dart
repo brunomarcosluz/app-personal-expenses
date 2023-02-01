@@ -12,8 +12,17 @@ class ExpensesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final ThemeData tema = ThemeData();
+
     return MaterialApp(
       home: MyHomePage(),
+      theme: tema.copyWith(
+        colorScheme: tema.colorScheme.copyWith(
+          primary: Colors.green,
+          secondary: Colors.blue[900]
+        )
+      )
     );
   }
 }
@@ -50,6 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.add(newTransaction);
     });
+
+    Navigator.of(context).pop();
+
   }
 
   _openTransactionFormModal(BuildContext context) {
